@@ -21,14 +21,14 @@ public class Pickup : MonoBehaviour
         {
             if (gameObject.CompareTag("Collect"))
             {
-                Destroy(gameObject);
+                gameObject.SetActive(false);
                 material.material = newmat;
                 script.OpenExit();
             }
 
             else if (gameObject.CompareTag("Key"))
             {
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
         }
             

@@ -557,9 +557,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e1112d00495cd46b23d5809d6b5423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Static_Enemy
-  look_left: {fileID: 0}
-  look_right: {fileID: 0}
-  rotation_script: {fileID: 0}
 --- !u!65 &92345075
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -685,9 +682,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e1112d00495cd46b23d5809d6b5423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Static_Enemy
-  look_left: {fileID: 179294433}
-  look_right: {fileID: 333178938}
-  rotation_script: {fileID: 438700624}
 --- !u!65 &92639246
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -812,6 +806,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Retry
   newmat: {fileID: 2100000, guid: a761dba54f1516943a5f64f10406aa5b, type: 2}
+  oldmat: {fileID: 0}
   Exit: {fileID: 357498969}
   open: 1
   script: {fileID: 1626809424}
@@ -828,13 +823,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d632564fcb6a24e9dbfdefff4e2ef3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
+  script: {fileID: 1165407799}
   inputHistory: []
+  allow_input: 1
   currentInputIndex: 0
   allocatedmoves: 0
   O_Route: 0
   Leeway: 0
   Square_N: 0
   inputQueue: {fileID: 204710383}
+  rewind: 0
   currentState: 4
 --- !u!54 &101958810
 Rigidbody:
@@ -1959,9 +1957,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e1112d00495cd46b23d5809d6b5423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Static_Enemy
-  look_left: {fileID: 0}
-  look_right: {fileID: 0}
-  rotation_script: {fileID: 0}
 --- !u!65 &188370818
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3885,9 +3880,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c97f5cdcfb8204ea4b95bbcb2ad412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Static_Enemy_Rotation
-  enemy: {fileID: 438700628}
-  Left: {fileID: 179294433}
-  Right: {fileID: 333178938}
 --- !u!136 &438700625
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6583,6 +6575,7 @@ GameObject:
   - component: {fileID: 876118516}
   - component: {fileID: 876118515}
   - component: {fileID: 876118514}
+  - component: {fileID: 876118517}
   m_Layer: 0
   m_Name: Event Trigger
   m_TagString: Untagged
@@ -6598,12 +6591,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 876118510}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.93, y: 1, z: 0.75}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.0721302, y: 0.42000002, z: 3.47541}
   m_LocalScale: {x: 6, y: 1, z: 18.91}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1165407800}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &876118513
 MonoBehaviour:
@@ -6698,6 +6691,18 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &876118517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876118510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c3618ec891e3a74bb9707f0c8350d89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Activate
 --- !u!1001 &882299259
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7223,9 +7228,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e1112d00495cd46b23d5809d6b5423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Static_Enemy
-  look_left: {fileID: 0}
-  look_right: {fileID: 0}
-  rotation_script: {fileID: 0}
 --- !u!65 &941308859
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8872,6 +8874,51 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.009999999, y: 0.009999999, z: 0.009999999}
   m_Center: {x: 4.656613e-10, y: 0, z: -0.0000000037252903}
+--- !u!1 &1165407798
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1165407800}
+  - component: {fileID: 1165407799}
+  m_Layer: 0
+  m_Name: ActivateManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1165407799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165407798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c3618ec891e3a74bb9707f0c8350d89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Activate
+--- !u!4 &1165407800
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165407798}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -18.00213, y: 0.58, z: -2.72541}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 876118512}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1172027154 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3da02481a80aef049a75e8a2594b12dc, type: 3}
@@ -9060,9 +9107,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e1112d00495cd46b23d5809d6b5423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Static_Enemy
-  look_left: {fileID: 0}
-  look_right: {fileID: 0}
-  rotation_script: {fileID: 0}
 --- !u!65 &1195083661
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9399,9 +9443,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e1112d00495cd46b23d5809d6b5423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Static_Enemy
-  look_left: {fileID: 0}
-  look_right: {fileID: 0}
-  rotation_script: {fileID: 0}
 --- !u!65 &1243675205
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9819,9 +9860,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e1112d00495cd46b23d5809d6b5423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Static_Enemy
-  look_left: {fileID: 0}
-  look_right: {fileID: 0}
-  rotation_script: {fileID: 0}
 --- !u!65 &1289574504
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10387,9 +10425,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e1112d00495cd46b23d5809d6b5423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Static_Enemy
-  look_left: {fileID: 0}
-  look_right: {fileID: 0}
-  rotation_script: {fileID: 0}
 --- !u!65 &1398953770
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11222,9 +11257,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e1112d00495cd46b23d5809d6b5423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Static_Enemy
-  look_left: {fileID: 0}
-  look_right: {fileID: 0}
-  rotation_script: {fileID: 0}
 --- !u!65 &1627640145
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15117,5 +15149,5 @@ SceneRoots:
   - {fileID: 690131717}
   - {fileID: 363489959}
   - {fileID: 1255615066}
-  - {fileID: 876118512}
   - {fileID: 378431023}
+  - {fileID: 1165407800}

@@ -7,7 +7,7 @@ public class Door : MonoBehaviour
     {
         if (GameObject.FindWithTag("Key") == null)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }
