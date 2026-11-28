@@ -11,6 +11,17 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/School.unity
     guid: a1972a6500681de4c87299a4e4ab739c
+  - enabled: 1
+    path: Assets/Scenes/School 2.unity
+    guid: a88a03417e9b1874f9a42edd11e39298
+  - enabled: 1
+    path: Assets/Scenes/School 3.unity
+    guid: 11fcf7ea4c58f824990f8cc60798476b
+  - enabled: 1
+    path: Assets/Scenes/School 4.unity
+    guid: 38edbd32ccbcb974298f3170a2437427
+  - enabled: 1
+    path: Assets/Scenes/LoadingScreen.unity
+    guid: 49742ca9a50522243bdb24dd2ea4e781
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  m_UseUCBPForAssetBundles: 0
